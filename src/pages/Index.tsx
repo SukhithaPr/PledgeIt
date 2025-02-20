@@ -34,14 +34,19 @@ const Index = () => {
         <div className="container mx-auto text-center">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-playfair font-bold text-secondary mb-6 animate-fade-up">
-              Make a Difference in Your Community
+              Connect Volunteers with Meaningful Opportunities
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-              Connect with meaningful volunteer opportunities and create positive change. Join thousands making an impact every day.
+              Whether you're looking to volunteer or an organization seeking help, PledgeIt brings together passionate people and impactful causes.
             </p>
-            <button className="bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-full text-lg transition-all duration-300 animate-scale-up" style={{ animationDelay: '0.4s' }}>
-              Start Volunteering
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-up" style={{ animationDelay: '0.4s' }}>
+              <button className="bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-full text-lg transition-all duration-300">
+                Join as Volunteer
+              </button>
+              <button className="bg-secondary hover:bg-secondary-hover text-white px-8 py-3 rounded-full text-lg transition-all duration-300">
+                Register Organization
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -93,9 +98,17 @@ const Index = () => {
       {/* How It Works Section */}
       <section id="how-it-works" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-16">
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-6">
             How PledgeIt Works
           </h2>
+          <div className="flex justify-center gap-8 mb-16">
+            <button className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300">
+              For Volunteers
+            </button>
+            <button className="bg-secondary hover:bg-secondary-hover text-white px-6 py-2 rounded-full transition-colors duration-300">
+              For Organizations
+            </button>
+          </div>
           <div className="grid md:grid-cols-3 gap-8">
             {steps.map((step, index) => (
               <div 
@@ -192,11 +205,16 @@ const Index = () => {
             Ready to Make a Difference?
           </h2>
           <p className="text-white text-opacity-90 mb-8 max-w-2xl mx-auto">
-            Join thousands of volunteers creating positive change in their communities. Start your journey today.
+            Join PledgeIt today - whether you're looking to volunteer or an organization seeking support.
           </p>
-          <button className="bg-white text-primary hover:bg-accent-dark px-8 py-3 rounded-full text-lg transition-all duration-300">
-            Get Started Now
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-white text-primary hover:bg-accent-dark px-8 py-3 rounded-full text-lg transition-all duration-300">
+              Start Volunteering
+            </button>
+            <button className="bg-secondary text-white hover:bg-secondary-hover px-8 py-3 rounded-full text-lg transition-all duration-300">
+              Post Opportunities
+            </button>
+          </div>
         </div>
       </section>
     </div>
@@ -205,41 +223,41 @@ const Index = () => {
 
 const features = [
   {
-    icon: Heart,
-    title: "Meaningful Impact",
-    description: "Connect with causes that matter to you and make a real difference in your community."
+    icon: UserPlus,
+    title: "Easy Registration",
+    description: "Simple sign-up process for both volunteers and organizations to join our community."
   },
   {
-    icon: Users,
-    title: "Community Focus",
-    description: "Join a network of passionate volunteers and create lasting connections."
+    icon: Handshake,
+    title: "Perfect Matching",
+    description: "Organizations post opportunities while volunteers find the perfect match for their skills and interests."
   },
   {
     icon: Globe,
-    title: "Local & Global",
-    description: "Find opportunities both in your neighborhood and around the world."
+    title: "Widespread Impact",
+    description: "Connect with local and global opportunities, making a difference wherever you choose."
   }
 ];
 
 const stats = [
   { value: "10K+", label: "Active Volunteers" },
   { value: "500+", label: "Partner Organizations" },
-  { value: "100K", label: "Hours Pledged" },
+  { value: "1000+", label: "Active Opportunities" },
   { value: "50+", label: "Cities Covered" }
 ];
 
 const steps = [
   {
     title: "Create Your Profile",
-    description: "Sign up and tell us about your interests and skills to find the perfect opportunities."
+    description: "Sign up as a volunteer or organization. Tell us about your interests or the opportunities you offer."
   },
   {
-    title: "Browse Opportunities",
-    description: "Explore curated volunteer positions that match your preferences and schedule."
+    title: "Connect & Engage",
+    description: "Organizations post opportunities while volunteers browse and find their perfect match."
   },
   {
     title: "Make an Impact",
-    description: "Connect with organizations and start making a difference in your community."
+    description: "Start volunteering or receive help from passionate volunteers in your community."
   }
 ];
 
