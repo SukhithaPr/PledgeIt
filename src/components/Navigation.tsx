@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,18 +19,29 @@ const Navigation = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <a href="/" className="text-2xl font-playfair font-bold text-secondary">
+          <Link to="/" className="text-2xl font-playfair font-bold text-secondary">
             PledgeIt
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <NavLink href="#features">Features</NavLink>
             <NavLink href="#how-it-works">How It Works</NavLink>
             <NavLink href="#team">Team</NavLink>
-            <button className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300">
-              Get Started
-            </button>
+            <Link to="/about" className="text-secondary hover:text-primary transition-colors duration-300 font-medium">
+              About Us
+            </Link>
+            <Link to="/contact" className="text-secondary hover:text-primary transition-colors duration-300 font-medium">
+              Contact
+            </Link>
+            <a 
+              href="https://app.pledgeit.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300"
+            >
+              Visit Platform
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -54,9 +66,28 @@ const Navigation = () => {
               <MobileNavLink href="#team" onClick={() => setIsMobileMenuOpen(false)}>
                 Team
               </MobileNavLink>
-              <button className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300 w-full">
-                Get Started
-              </button>
+              <Link 
+                to="/about" 
+                className="text-secondary hover:text-primary transition-colors duration-300 font-medium block w-full text-center"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                About Us
+              </Link>
+              <Link 
+                to="/contact" 
+                className="text-secondary hover:text-primary transition-colors duration-300 font-medium block w-full text-center"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+              <a 
+                href="https://app.pledgeit.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300 w-full text-center"
+              >
+                Visit Platform
+              </a>
             </div>
           </div>
         )}

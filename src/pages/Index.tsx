@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import Navigation from '@/components/Navigation';
 import { Heart, Users, UserPlus, Award, Handshake, Flag, Globe, Check, Linkedin } from 'lucide-react';
@@ -175,15 +174,23 @@ const Index = () => {
             Ready to Make a Difference?
           </h2>
           <p className="text-white text-opacity-90 mb-8 max-w-2xl mx-auto">
-            Join PledgeIt today - whether you're looking to volunteer or an organization seeking support.
+            Visit our platform to connect with meaningful volunteer opportunities or find passionate volunteers for your cause.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-primary hover:bg-accent-dark px-8 py-3 rounded-full text-lg transition-all duration-300">
-              Start Volunteering
-            </button>
-            <button className="bg-secondary text-white hover:bg-secondary-hover px-8 py-3 rounded-full text-lg transition-all duration-300">
-              Post Opportunities
-            </button>
+            <a 
+              href="https://app.pledgeit.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white text-primary hover:bg-accent-dark px-8 py-3 rounded-full text-lg transition-all duration-300"
+            >
+              Visit Platform
+            </a>
+            <Link 
+              to="/contact"
+              className="bg-secondary text-white hover:bg-secondary-hover px-8 py-3 rounded-full text-lg transition-all duration-300"
+            >
+              Contact Us
+            </Link>
           </div>
         </div>
       </section>
