@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 import Navigation from '@/components/Navigation';
 import { Heart, Users, UserPlus, Award, Handshake, Flag, Globe, Check, Linkedin } from 'lucide-react';
@@ -167,37 +168,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-accent">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-16">
-            What Our Volunteers Say
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={testimonial.name}
-                className="animate-on-scroll opacity-0 bg-white p-6 rounded-lg shadow-sm"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <p className="text-gray-600 mb-4">{testimonial.text}</p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center">
-                    <span className="text-primary font-semibold">
-                      {testimonial.name.charAt(0)}
-                    </span>
-                  </div>
-                  <div className="ml-3">
-                    <div className="font-semibold text-secondary">{testimonial.name}</div>
-                    <div className="text-sm text-gray-500">{testimonial.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-20 bg-primary">
         <div className="container mx-auto px-4 text-center">
@@ -258,24 +228,6 @@ const steps = [
   {
     title: "Make an Impact",
     description: "Start volunteering or receive help from passionate volunteers in your community."
-  }
-];
-
-const testimonials = [
-  {
-    text: "PledgeIt made it incredibly easy to find meaningful volunteer opportunities in my area. I've met amazing people and made a real difference.",
-    name: "Sarah Johnson",
-    role: "Regular Volunteer"
-  },
-  {
-    text: "As a busy professional, I appreciate how PledgeIt helps me find flexible volunteering opportunities that fit my schedule.",
-    name: "Michael Chen",
-    role: "Weekend Volunteer"
-  },
-  {
-    text: "The platform's user-friendly interface and community focus have made volunteering a regular part of my life.",
-    name: "Emma Rodriguez",
-    role: "Student Volunteer"
   }
 ];
 
