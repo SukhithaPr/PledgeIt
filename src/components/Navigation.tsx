@@ -25,19 +25,14 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
+            <NavLink href="#about">About</NavLink>
             <NavLink href="#features">Features</NavLink>
             <NavLink href="#how-it-works">How It Works</NavLink>
             <NavLink href="#team">Team</NavLink>
-            <Link to="/about" className="text-secondary hover:text-primary transition-colors duration-300 font-medium">
-              About Us
-            </Link>
-            <Link to="/contact" className="text-secondary hover:text-primary transition-colors duration-300 font-medium">
-              Contact
-            </Link>
-            <a 
-              href="https://app.pledgeit.com" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://app.pledgeit.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300"
             >
               Visit Platform
@@ -45,7 +40,7 @@ const Navigation = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden text-secondary"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -66,24 +61,10 @@ const Navigation = () => {
               <MobileNavLink href="#team" onClick={() => setIsMobileMenuOpen(false)}>
                 Team
               </MobileNavLink>
-              <Link 
-                to="/about" 
-                className="text-secondary hover:text-primary transition-colors duration-300 font-medium block w-full text-center"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                About Us
-              </Link>
-              <Link 
-                to="/contact" 
-                className="text-secondary hover:text-primary transition-colors duration-300 font-medium block w-full text-center"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
-              <a 
-                href="https://app.pledgeit.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://app.pledgeit.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300 w-full text-center"
               >
                 Visit Platform
@@ -105,12 +86,12 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
   </a>
 );
 
-const MobileNavLink = ({ 
-  href, 
-  children, 
-  onClick 
-}: { 
-  href: string; 
+const MobileNavLink = ({
+  href,
+  children,
+  onClick
+}: {
+  href: string;
   children: React.ReactNode;
   onClick: () => void;
 }) => (

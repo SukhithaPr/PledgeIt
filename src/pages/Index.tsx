@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Navigation from '@/components/Navigation';
-import { Heart, Users, UserPlus, Award, Handshake, Flag, Globe, Check, Linkedin } from 'lucide-react';
+import { Heart, Users, UserPlus, Award, Handshake, Flag, Globe, Check, Linkedin, Link } from 'lucide-react';
 
 const Index = () => {
   const statsRef = useRef<HTMLDivElement>(null);
@@ -28,7 +28,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-accent">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto text-center">
@@ -39,13 +39,39 @@ const Index = () => {
             <p className="text-lg md:text-xl text-gray-600 mb-8 animate-fade-up" style={{ animationDelay: '0.2s' }}>
               Whether you're looking to volunteer or an organization seeking help, PledgeIt brings together passionate people and impactful causes.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-up" style={{ animationDelay: '0.4s' }}>
-              <button className="bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-full text-lg transition-all duration-300">
-                Join as Volunteer
-              </button>
-              <button className="bg-secondary hover:bg-secondary-hover text-white px-8 py-3 rounded-full text-lg transition-all duration-300">
-                Register Organization
-              </button>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="flex justify-center">
+              <img
+                src="Team.jpg"
+                alt="PledgeIt Team"
+                className="rounded-lg shadow-lg w-full max-w-lg md:max-w-xl" // Increased image size
+              />
+            </div>
+            <div className="md:pr-8">
+              <h2 className="text-3xl md:text-4xl font-playfair font-bold text-secondary mb-12">
+                About Us
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                In Sri Lanka, volunteerism plays a vital role in supporting communities through initiatives like
+                <span className="font-semibold"> environmental conservation, beach clean-ups, and disaster response. </span>
+                However, traditional volunteer management systems are outdated, making coordination inefficient.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed mt-4">
+                <span className="font-semibold text-primary">PledgeIt</span> transforms the way volunteering works by
+                providing an intuitive, centralized platform that connects passionate individuals with meaningful
+                opportunities. Our goal is to make volunteering not only accessible but also engaging, rewarding, and impactful.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed mt-4">
+                Whether you are an individual looking to contribute or an organization seeking volunteers,
+                <span className="font-semibold text-secondary"> PledgeIt ensures seamless collaboration, efficient management, and real impact.</span>
+              </p>
             </div>
           </div>
         </div>
@@ -59,9 +85,9 @@ const Index = () => {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div 
+              <div
                 key={feature.title}
-                className="animate-on-scroll opacity-0 p-6 rounded-lg hover:shadow-lg transition-all duration-300"
+                className="animate-on-scroll opacity-0 p-6 rounded-lg hover:shadow-lg transition-all duration-300 bg-accent"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="bg-primary-light bg-opacity-20 w-12 h-12 rounded-full flex items-center justify-center mb-4">
@@ -69,26 +95,6 @@ const Index = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-secondary">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 bg-primary bg-opacity-5">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 text-center" ref={statsRef}>
-            {stats.map((stat, index) => (
-              <div 
-                key={stat.label}
-                className="animate-on-scroll opacity-0"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-gray-600">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -111,7 +117,7 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {steps.map((step, index) => (
-              <div 
+              <div
                 key={step.title}
                 className="animate-on-scroll opacity-0 text-center"
                 style={{ animationDelay: `${index * 0.2}s` }}
@@ -138,20 +144,20 @@ const Index = () => {
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
-              <div 
+              <div
                 key={member.name}
                 className="animate-on-scroll opacity-0 bg-accent rounded-lg p-6 text-center group hover:shadow-lg transition-all duration-300"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="relative w-32 h-32 mx-auto mb-6">
-                  <img 
-                    src={member.image} 
+                  <img
+                    src={member.image}
                     alt={member.name}
                     className="rounded-full w-full h-full object-cover border-4 border-primary-light"
                   />
-                  <a 
-                    href={member.linkedin} 
-                    target="_blank" 
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="absolute bottom-0 right-0 bg-primary hover:bg-primary-hover text-white p-2 rounded-full transition-colors duration-300"
                   >
@@ -177,20 +183,14 @@ const Index = () => {
             Visit our platform to connect with meaningful volunteer opportunities or find passionate volunteers for your cause.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="https://app.pledgeit.com" 
-              target="_blank" 
+            <a
+              href="https://app.pledgeit.com"
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-primary hover:bg-accent-dark px-8 py-3 rounded-full text-lg transition-all duration-300"
             >
               Visit Platform
             </a>
-            <Link 
-              to="/contact"
-              className="bg-secondary text-white hover:bg-secondary-hover px-8 py-3 rounded-full text-lg transition-all duration-300"
-            >
-              Contact Us
-            </Link>
           </div>
         </div>
       </section>
@@ -240,42 +240,42 @@ const steps = [
 
 const teamMembers = [
   {
-    name: "Sarah Williams",
+    name: "Sukhitha Saparamadu",
     role: "Founder & CEO",
     description: "Former non-profit executive with 15 years of experience in community organizing and social impact.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256",
     linkedin: "https://linkedin.com"
   },
   {
-    name: "Michael Chang",
+    name: "Dulansa Navindee",
     role: "Head of Partnerships",
     description: "Strategic leader focusing on building meaningful relationships with organizations worldwide.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=256",
     linkedin: "https://linkedin.com"
   },
   {
-    name: "Emily Rodriguez",
+    name: "Anjula Beba",
     role: "Community Manager",
     description: "Passionate about creating engaging volunteer experiences and fostering community connections.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=256",
     linkedin: "https://linkedin.com"
   },
   {
-    name: "David Kumar",
+    name: "Lochana Methsiluni",
     role: "Tech Lead",
     description: "Experienced developer dedicated to building accessible and user-friendly platforms.",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256",
     linkedin: "https://linkedin.com"
   },
   {
-    name: "Lisa Chen",
+    name: "Aruniga",
     role: "Operations Director",
     description: "Expert in scaling volunteer initiatives and optimizing organizational processes.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=256",
     linkedin: "https://linkedin.com"
   },
   {
-    name: "James Wilson",
+    name: "Mishal",
     role: "Marketing Strategist",
     description: "Creative professional focused on spreading our mission and impact story.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=256",
