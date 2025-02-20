@@ -1,7 +1,6 @@
-
 import { useEffect, useRef } from 'react';
 import Navigation from '@/components/Navigation';
-import { Heart, Users, UserPlus, Award, Handshake, Flag, Globe, Check } from 'lucide-react';
+import { Heart, Users, UserPlus, Award, Handshake, Flag, Globe, Check, Linkedin } from 'lucide-react';
 
 const Index = () => {
   const statsRef = useRef<HTMLDivElement>(null);
@@ -115,6 +114,46 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Team Section */}
+      <section id="team" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-6">
+            Meet Our Team
+          </h2>
+          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-16">
+            Dedicated professionals committed to making volunteering accessible and impactful for everyone.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.map((member, index) => (
+              <div 
+                key={member.name}
+                className="animate-on-scroll opacity-0 bg-accent rounded-lg p-6 text-center group hover:shadow-lg transition-all duration-300"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="relative w-32 h-32 mx-auto mb-6">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="rounded-full w-full h-full object-cover border-4 border-primary-light"
+                  />
+                  <a 
+                    href={member.linkedin} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="absolute bottom-0 right-0 bg-primary hover:bg-primary-hover text-white p-2 rounded-full transition-colors duration-300"
+                  >
+                    <Linkedin size={16} />
+                  </a>
+                </div>
+                <h3 className="text-xl font-semibold text-secondary mb-2">{member.name}</h3>
+                <p className="text-primary font-medium mb-3">{member.role}</p>
+                <p className="text-gray-600">{member.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20 bg-accent">
         <div className="container mx-auto px-4">
@@ -219,6 +258,51 @@ const testimonials = [
     text: "The platform's user-friendly interface and community focus have made volunteering a regular part of my life.",
     name: "Emma Rodriguez",
     role: "Student Volunteer"
+  }
+];
+
+const teamMembers = [
+  {
+    name: "Sarah Williams",
+    role: "Founder & CEO",
+    description: "Former non-profit executive with 15 years of experience in community organizing and social impact.",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256",
+    linkedin: "https://linkedin.com"
+  },
+  {
+    name: "Michael Chang",
+    role: "Head of Partnerships",
+    description: "Strategic leader focusing on building meaningful relationships with organizations worldwide.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=256",
+    linkedin: "https://linkedin.com"
+  },
+  {
+    name: "Emily Rodriguez",
+    role: "Community Manager",
+    description: "Passionate about creating engaging volunteer experiences and fostering community connections.",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=256",
+    linkedin: "https://linkedin.com"
+  },
+  {
+    name: "David Kumar",
+    role: "Tech Lead",
+    description: "Experienced developer dedicated to building accessible and user-friendly platforms.",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256",
+    linkedin: "https://linkedin.com"
+  },
+  {
+    name: "Lisa Chen",
+    role: "Operations Director",
+    description: "Expert in scaling volunteer initiatives and optimizing organizational processes.",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=256",
+    linkedin: "https://linkedin.com"
+  },
+  {
+    name: "James Wilson",
+    role: "Marketing Strategist",
+    description: "Creative professional focused on spreading our mission and impact story.",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=256",
+    linkedin: "https://linkedin.com"
   }
 ];
 
