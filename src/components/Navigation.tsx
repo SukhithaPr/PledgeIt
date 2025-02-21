@@ -27,7 +27,7 @@ const Navigation = () => {
             <NavLink href="#about">About Us</NavLink>
             <NavLink href="#features">Features</NavLink>
             <NavLink href="#how-it-works">How It Works</NavLink>
-            <NavLink href="#testimonials">Testimonials</NavLink>
+            <NavLink href="#team">Team</NavLink>
             <button className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300">
               Get Started
             </button>
