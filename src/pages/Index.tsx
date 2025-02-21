@@ -184,7 +184,7 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://app.pledgeit.com"
+              href="https://www.linkedin.com/in/plegdeit/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-primary hover:bg-accent-dark px-8 py-3 rounded-full text-lg transition-all duration-300"
