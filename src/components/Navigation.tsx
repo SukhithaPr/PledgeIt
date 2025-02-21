@@ -25,7 +25,7 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <NavLink href="#about">About</NavLink>
+            <NavLink href="#about">About Us</NavLink>
             <NavLink href="#features">Features</NavLink>
             <NavLink href="#how-it-works">How It Works</NavLink>
             <NavLink href="#team">Team</NavLink>

@@ -102,7 +102,7 @@ const Index = () => {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="py-20 bg-white">
+      <section id="how-it-works" className="py-20 bg-primary">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-6">
             How PledgeIt Works
@@ -241,45 +241,45 @@ const steps = [
 const teamMembers = [
   {
     name: "Sukhitha Saparamadu",
-    role: "Founder & CEO",
-    description: "Former non-profit executive with 15 years of experience in community organizing and social impact.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256",
+    role: "Back-End Developer",
+    description: "Backend engineer passionate about building scalable and efficient systems.",
+    image: "/Sukhitha.jpg",
     linkedin: "https://linkedin.com"
   },
   {
     name: "Dulansa Navindee",
-    role: "Head of Partnerships",
-    description: "Strategic leader focusing on building meaningful relationships with organizations worldwide.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=256",
-    linkedin: "https://linkedin.com"
+    role: "Front-End Developer",
+    description: "Creative front-end developer focused on crafting intuitive and engaging user interfaces.",
+    image: "/Dulansa.jpg",
+    linkedin: "https://www.linkedin.com/in/dulansanavindee/"
   },
   {
-    name: "Anjula Beba",
-    role: "Community Manager",
-    description: "Passionate about creating engaging volunteer experiences and fostering community connections.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=256",
-    linkedin: "https://linkedin.com"
+    name: "Anjula Samaranayake",
+    role: "Machine Learning Engineer",
+    description: "AI enthusiast exploring data-driven solutions to enhance volunteer experiences.",
+    image: "/Anjula.jpg",
+    linkedin: "https://www.linkedin.com/in/anjula-samaranayake/"
+  },
+  {
+    name: "Aruniga Gnanasegaran",
+    role: "Back-End Developer",
+    description: "Expert in scaling volunteer initiatives and optimizing organizational processes.",
+    image: "/Default.jpg",
+    linkedin: "https://www.linkedin.com/in/aruniga-gnanasegaran/"
   },
   {
     name: "Lochana Methsiluni",
-    role: "Tech Lead",
+    role: "Front-End Developer",
     description: "Experienced developer dedicated to building accessible and user-friendly platforms.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256",
-    linkedin: "https://linkedin.com"
+    image: "/Lochana.jpg",
+    linkedin: "https://www.linkedin.com/in/lochana-methsiluni/"
   },
   {
-    name: "Aruniga",
-    role: "Operations Director",
-    description: "Expert in scaling volunteer initiatives and optimizing organizational processes.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=256",
-    linkedin: "https://linkedin.com"
-  },
-  {
-    name: "Mishal",
-    role: "Marketing Strategist",
-    description: "Creative professional focused on spreading our mission and impact story.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=256",
-    linkedin: "https://linkedin.com"
+    name: "Mishal Ayubkhan",
+    role: "Machine Learning Engineer",
+    description: "Passionate about leveraging AI to drive innovation and efficiency in volunteering.",
+    image: "/Mishal.jpg",
+    linkedin: "https://www.linkedin.com/in/mishalayubkhan102/"
   }
 ];
 
