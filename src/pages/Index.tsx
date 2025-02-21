@@ -1,6 +1,7 @@
+
 import { useEffect, useRef } from 'react';
 import Navigation from '@/components/Navigation';
-import { Heart, Users, UserPlus, Award, Handshake, Flag, Globe, Check, Linkedin, Link } from 'lucide-react';
+import { Heart, Users, UserPlus, Award, Handshake, Flag, Globe, Check } from 'lucide-react';
 
 const Index = () => {
   const statsRef = useRef<HTMLDivElement>(null);
@@ -28,13 +29,13 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-accent">
       <Navigation />
-
+      
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto text-center">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-playfair font-bold text-secondary mb-6 animate-fade-up">
-              Connect Volunteers with Meaningful Opportunities
+              Make a Difference in Your Community
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8 animate-fade-up" style={{ animationDelay: '0.2s' }}>
               Whether you're looking to volunteer or an organization seeking help, PledgeIt brings together passionate people and impactful causes.
@@ -85,9 +86,9 @@ const Index = () => {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div
+              <div 
                 key={feature.title}
-                className="animate-on-scroll opacity-0 p-6 rounded-lg hover:shadow-lg transition-all duration-300 bg-accent"
+                className="animate-on-scroll opacity-0 p-6 rounded-lg hover:shadow-lg transition-all duration-300"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="bg-primary-light bg-opacity-20 w-12 h-12 rounded-full flex items-center justify-center mb-4">
@@ -101,23 +102,35 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Stats Section */}
+      <section className="py-20 bg-primary bg-opacity-5">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8 text-center" ref={statsRef}>
+            {stats.map((stat, index) => (
+              <div 
+                key={stat.label}
+                className="animate-on-scroll opacity-0"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-gray-600">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* How It Works Section */}
       <section id="how-it-works" className="py-20 bg-accent">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-6">
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-16">
             How PledgeIt Works
           </h2>
-          <div className="flex justify-center gap-8 mb-16">
-            <button className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300">
-              For Volunteers
-            </button>
-            <button className="bg-secondary hover:bg-secondary-hover text-white px-6 py-2 rounded-full transition-colors duration-300">
-              For Organizations
-            </button>
-          </div>
           <div className="grid md:grid-cols-3 gap-8">
             {steps.map((step, index) => (
-              <div
+              <div 
                 key={step.title}
                 className="animate-on-scroll opacity-0 text-center"
                 style={{ animationDelay: `${index * 0.2}s` }}
@@ -133,40 +146,31 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section id="team" className="py-20 bg-white">
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-20 bg-accent">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-6">
-            Meet Our Team
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-16">
+            What Our Volunteers Say
           </h2>
-          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-16">
-            Dedicated professionals committed to making volunteering accessible and impactful for everyone.
-          </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <div
-                key={member.name}
-                className="animate-on-scroll opacity-0 bg-accent rounded-lg p-6 text-center group hover:shadow-lg transition-all duration-300"
+            {testimonials.map((testimonial, index) => (
+              <div 
+                key={testimonial.name}
+                className="animate-on-scroll opacity-0 bg-white p-6 rounded-lg shadow-sm"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="relative w-32 h-32 mx-auto mb-6">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="rounded-full w-full h-full object-cover border-4 border-primary-light"
-                  />
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute bottom-0 right-0 bg-primary hover:bg-primary-hover text-white p-2 rounded-full transition-colors duration-300"
-                  >
-                    <Linkedin size={16} />
-                  </a>
+                <p className="text-gray-600 mb-4">{testimonial.text}</p>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center">
+                    <span className="text-primary font-semibold">
+                      {testimonial.name.charAt(0)}
+                    </span>
+                  </div>
+                  <div className="ml-3">
+                    <div className="font-semibold text-secondary">{testimonial.name}</div>
+                    <div className="text-sm text-gray-500">{testimonial.role}</div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-secondary mb-2">{member.name}</h3>
-                <p className="text-primary font-medium mb-3">{member.role}</p>
-                <p className="text-gray-600">{member.description}</p>
               </div>
             ))}
           </div>
@@ -180,18 +184,11 @@ const Index = () => {
             Ready to Make a Difference?
           </h2>
           <p className="text-white text-opacity-90 mb-8 max-w-2xl mx-auto">
-            Visit our platform to connect with meaningful volunteer opportunities or find passionate volunteers for your cause.
+            Join thousands of volunteers creating positive change in their communities. Start your journey today.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://app.pledgeit.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-primary hover:bg-accent-dark px-8 py-3 rounded-full text-lg transition-all duration-300"
-            >
-              Visit Platform
-            </a>
-          </div>
+          <button className="bg-white text-primary hover:bg-accent-dark px-8 py-3 rounded-full text-lg transition-all duration-300">
+            Get Started Now
+          </button>
         </div>
       </section>
     </div>
@@ -200,38 +197,38 @@ const Index = () => {
 
 const features = [
   {
-    icon: UserPlus,
-    title: "Easy Registration",
-    description: "Simple sign-up process for both volunteers and organizations to join our community."
+    icon: Heart,
+    title: "Meaningful Impact",
+    description: "Connect with causes that matter to you and make a real difference in your community."
   },
   {
-    icon: Handshake,
-    title: "Perfect Matching",
-    description: "Organizations post opportunities while volunteers find the perfect match for their skills and interests."
+    icon: Users,
+    title: "Community Focus",
+    description: "Join a network of passionate volunteers and create lasting connections."
   },
   {
     icon: Globe,
-    title: "Widespread Impact",
-    description: "Connect with local and global opportunities, making a difference wherever you choose."
+    title: "Local & Global",
+    description: "Find opportunities both in your neighborhood and around the world."
   }
 ];
 
 const steps = [
   {
     title: "Create Your Profile",
-    description: "Sign up as a volunteer or organization. Tell us about your interests or the opportunities you offer."
+    description: "Sign up and tell us about your interests and skills to find the perfect opportunities."
   },
   {
-    title: "Connect & Engage",
-    description: "Organizations post opportunities while volunteers browse and find their perfect match."
+    title: "Browse Opportunities",
+    description: "Explore curated volunteer positions that match your preferences and schedule."
   },
   {
     title: "Make an Impact",
-    description: "Start volunteering or receive help from passionate volunteers in your community."
+    description: "Connect with organizations and start making a difference in your community."
   }
 ];
 
-const teamMembers = [
+const testimonials = [
   {
     name: "Sukhitha Saparamadu",
     role: "Back-End Developer",
