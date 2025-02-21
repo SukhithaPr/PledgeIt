@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,28 +18,22 @@ const Navigation = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-playfair font-bold text-secondary">
+          <a href="/" className="text-2xl font-playfair font-bold text-secondary">
             PledgeIt
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <NavLink href="#about">About</NavLink>
             <NavLink href="#features">Features</NavLink>
             <NavLink href="#how-it-works">How It Works</NavLink>
-            <NavLink href="#team">Team</NavLink>
-            <a
-              href="https://app.pledgeit.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300"
-            >
-              Visit Platform
-            </a>
+            <NavLink href="#testimonials">Testimonials</NavLink>
+            <button className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300">
+              Get Started
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
+          <button 
             className="md:hidden text-secondary"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -58,17 +51,12 @@ const Navigation = () => {
               <MobileNavLink href="#how-it-works" onClick={() => setIsMobileMenuOpen(false)}>
                 How It Works
               </MobileNavLink>
-              <MobileNavLink href="#team" onClick={() => setIsMobileMenuOpen(false)}>
-                Team
+              <MobileNavLink href="#testimonials" onClick={() => setIsMobileMenuOpen(false)}>
+                Testimonials
               </MobileNavLink>
-              <a
-                href="https://app.pledgeit.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300 w-full text-center"
-              >
-                Visit Platform
-              </a>
+              <button className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300 w-full">
+                Get Started
+              </button>
             </div>
           </div>
         )}
@@ -86,12 +74,12 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
   </a>
 );
 
-const MobileNavLink = ({
-  href,
-  children,
-  onClick
-}: {
-  href: string;
+const MobileNavLink = ({ 
+  href, 
+  children, 
+  onClick 
+}: { 
+  href: string; 
   children: React.ReactNode;
   onClick: () => void;
 }) => (
