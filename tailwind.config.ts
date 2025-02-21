@@ -32,14 +32,14 @@ export default {
         primary: {
           DEFAULT: '#de362e',
           hover: '#c73e38',
-          light: '#B2C8B4',
+          light: '#fab589',
         },
         secondary: {
           DEFAULT: '#2C3333',
           hover: '#3A4444',
         },
         accent: {
-          DEFAULT: '#F8F8F8',
+          DEFAULT: '#f9eee7',
           dark: '#E8E8E8',
         },
       },

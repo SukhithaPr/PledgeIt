@@ -58,17 +58,17 @@ const Index = () => {
               <h2 className="text-3xl md:text-4xl font-playfair font-bold text-secondary mb-12">
                 About Us
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-lg text-gray-700 leading-relaxed text-align: justify">
                 In Sri Lanka, volunteerism plays a vital role in supporting communities through initiatives like
                 <span className="font-semibold"> environmental conservation, beach clean-ups, and disaster response. </span>
                 However, traditional volunteer management systems are outdated, making coordination inefficient.
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed mt-4">
+              <p className="text-lg text-gray-700 leading-relaxed mt-4 text-align: justify">
                 <span className="font-semibold text-primary">PledgeIt</span> transforms the way volunteering works by
                 providing an intuitive, centralized platform that connects passionate individuals with meaningful
                 opportunities. Our goal is to make volunteering not only accessible but also engaging, rewarding, and impactful.
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed mt-4">
+              <p className="text-lg text-gray-700 leading-relaxed mt-4 text-align: justify">
                 Whether you are an individual looking to contribute or an organization seeking volunteers,
                 <span className="font-semibold text-secondary"> PledgeIt ensures seamless collaboration, efficient management, and real impact.</span>
               </p>
@@ -102,7 +102,7 @@ const Index = () => {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="py-20 bg-primary">
+      <section id="how-it-works" className="py-20 bg-accent">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-6">
             How PledgeIt Works
@@ -214,13 +214,6 @@ const features = [
     title: "Widespread Impact",
     description: "Connect with local and global opportunities, making a difference wherever you choose."
   }
-];
-
-const stats = [
-  { value: "10K+", label: "Active Volunteers" },
-  { value: "500+", label: "Partner Organizations" },
-  { value: "1000+", label: "Active Opportunities" },
-  { value: "50+", label: "Cities Covered" }
 ];
 
 const steps = [
