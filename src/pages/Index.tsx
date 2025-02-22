@@ -189,7 +189,7 @@ const Index = () => {
             {faq.map((item, index) => (
               <div key={index} className="mb-4 border-b pb-4">
                 <button
-                  className="w-full text-left text-lg font-semibold flex justify-between items-center py-2"
+                  className="w-full text-left text-lg font-medium flex justify-between items-center py-2"
                   onClick={() => toggleQuestion(index)}
                 >
                   {item.question}
