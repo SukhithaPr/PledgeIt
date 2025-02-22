@@ -1,9 +1,15 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Navigation from '@/components/Navigation';
-import { Heart, Users, UserPlus, Award, Handshake, Flag, Globe, Check, Linkedin, Link } from 'lucide-react';
+import { Heart, Users, UserPlus, Award, Handshake, Flag, Globe, Check, Linkedin, Link, Mail, Instagram } from 'lucide-react';
 
 const Index = () => {
   const statsRef = useRef<HTMLDivElement>(null);
+
+  const [openQuestion, setOpenQuestion] = useState<number | null>(null);
+
+  const toggleQuestion = (index: number) => {
+    setOpenQuestion(openQuestion === index ? null : index);
+  };
 
   useEffect(() => {
     const observerCallback: IntersectionObserverCallback = (entries) => {
@@ -173,27 +179,80 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-primary">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-white mb-6">
+      {/* FAQ Section */}
+      <section id="faq" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-6">
+            Frequently Asked Questions
+          </h2>
+          <div className="max-w-3xl mx-auto">
+            {faq.map((item, index) => (
+              <div key={index} className="mb-4 border-b pb-4">
+                <button
+                  className="w-full text-left text-lg font-semibold flex justify-between items-center py-2"
+                  onClick={() => toggleQuestion(index)}
+                >
+                  {item.question}
+                  <span className="text-primary">{openQuestion === index ? '-' : '+'}</span>
+                </button>
+                {openQuestion === index && (
+                  <p className="text-gray-600 mt-2">{item.answer}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer / CTA Section */}
+      <footer className="py-10 bg-primary text-white">
+        <div className="container mx-auto px-6 text-center">
+          {/* CTA Heading */}
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6">
             Ready to Make a Difference?
           </h2>
-          <p className="text-white text-opacity-90 mb-8 max-w-2xl mx-auto">
-            Visit our platform to connect with meaningful volunteer opportunities or find passionate volunteers for your cause.
+          <p className="text-white text-opacity-90 mb-8 max-w-xl mx-auto">
+            Join our platform to discover meaningful volunteer opportunities or connect with dedicated volunteers for your cause.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+          {/* Contact Info */}
+          <p className="mb-4 text-lg">Have questions? Reach out to us at:</p>
+          <a
+            href="mailto:pledgeit6@gmail.com"
+            className="text-white font-medium flex justify-center items-center gap-2 hover:text-gray-300 transition-all duration-300"
+          >
+            <Mail size={20} /> pledgeit6@gmail.com
+          </a>
+
+          {/* Social Media Links */}
+          <div className="flex justify-center items-center gap-6 mt-6">
+            <a
+              href="https://www.instagram.com/your_instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-300 transition-all duration-300"
+            >
+              <Instagram size={24} />
+            </a>
             <a
               href="https://www.linkedin.com/in/plegdeit/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-primary hover:bg-accent-dark px-8 py-3 rounded-full text-lg transition-all duration-300"
+              className="text-white hover:text-gray-300 transition-all duration-300"
             >
-              Visit Platform
+              <Linkedin size={24} />
             </a>
           </div>
         </div>
-      </section>
+
+        {/* Copyright Section */}
+        <div className="border-t border-white border-opacity-20 mt-12 pt-6 text-center text-sm text-white text-opacity-80">
+          © {new Date().getFullYear()} PledgeIt. All rights reserved.
+        </div>
+      </footer>
+
+
+
     </div>
   );
 };
@@ -257,7 +316,7 @@ const teamMembers = [
     name: "Aruniga Gnanasegaran",
     role: "Back-End Developer",
     description: "Expert in scaling volunteer initiatives and optimizing organizational processes.",
-    image: "/Default.jpg",
+    image: "/Aruniga.jpg",
     linkedin: "https://www.linkedin.com/in/aruniga-gnanasegaran/"
   },
   {
@@ -275,5 +334,21 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/mishalayubkhan102/"
   }
 ];
+
+const faq = [
+  {
+    question: "How do I sign up for PledgeIt?",
+    answer: "You can sign up by visiting our platform and creating a profile as a volunteer or an organization. It's quick and easy!"
+  },
+  {
+    question: "Is PledgeIt free to use?",
+    answer: "Yes, PledgeIt is completely free for volunteers. Organizations may have premium features available at an additional cost."
+  },
+  {
+    question: "How can I find volunteer opportunities?",
+    answer: "Simply browse through our platform and filter opportunities based on your interests, skills, and location."
+  }
+];
+
 
 export default Index;
