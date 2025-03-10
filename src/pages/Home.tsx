@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -10,6 +10,7 @@ import {
   Bell,
   MessageCircle,
   Search,
+  Linkedin,
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -29,22 +30,50 @@ const FeatureCard = ({ icon: Icon, title, description }) => (
   </motion.div>
 );
 
-// Reusable StepCard Component
-const StepCard = ({ index, title, description }) => (
-  <motion.div
-    className="text-center bg-white p-6 shadow-lg rounded-lg min-h-[250px]"
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-  >
-    <div className="bg-red-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-6 text-lg font-bold">
-      {index + 1}
-    </div>
-    <h3 className="text-xl font-semibold mb-3 text-gray-800">{title}</h3>
-    <p className="text-gray-600">{description}</p>
-  </motion.div>
-);
-
 const Home = () => {
+  const statsRef = useRef<HTMLDivElement>(null);
+
+  const [openQuestion, setOpenQuestion] = useState<number | null>(null);
+
+  const toggleQuestion = (index: number) => {
+    setOpenQuestion(openQuestion === index ? null : index);
+  };
+
+  useEffect(() => {
+    const observerCallback: IntersectionObserverCallback = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-up');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+      observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Reusable StepCard Component
+  const StepCard = ({ index, title, description }) => (
+    <motion.div
+      className="text-center bg-white p-6 shadow-lg rounded-lg min-h-[250px]"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <div className="bg-red-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-6 text-lg font-bold">
+        {index + 1}
+      </div>
+      <h3 className="text-xl font-semibold mb-3 text-gray-800">{title}</h3>
+      <p className="text-gray-600">{description}</p>
+    </motion.div>
+  );
+
   const features = [
     {
       icon: Heart,
@@ -135,10 +164,10 @@ const Home = () => {
           </p>
           <div className="flex space-x-4">
             <Link
-              to="/about"
+              to="http://pledgeit.live/"
               className="px-6 py-3 text-sm font-medium text-white rounded-full bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 hover:opacity-80"
             >
-              Learn More
+              Get Started
             </Link>
           </div>
         </div>
@@ -212,7 +241,7 @@ const Home = () => {
             We focus on 3 main cities in Sri Lanka
           </p>
           <p className="text-gray-600 text-lg mt-4 text-justify p-4">
-          Join us in driving meaningful change across Colombo, Galle, and Kandy—three vibrant cities at the heart of Sri Lanka's social transformation. Colombo, the bustling capital, is a hub for innovation and outreach initiatives. Galle, with its rich history and coastal charm, thrives on environmental conservation and community-driven projects. Kandy, known for its cultural heritage, is home to numerous educational and social welfare programs. No matter your passion, there’s a place for you to contribute and make a lasting difference in these dynamic communities!
+            Join us in driving meaningful change across Colombo, Galle, and Kandy—three vibrant cities at the heart of Sri Lanka's social transformation. Colombo, the bustling capital, is a hub for innovation and outreach initiatives. Galle, with its rich history and coastal charm, thrives on environmental conservation and community-driven projects. Kandy, known for its cultural heritage, is home to numerous educational and social welfare programs. No matter your passion, there’s a place for you to contribute and make a lasting difference in these dynamic communities!
           </p>
         </div>
         <div>
@@ -329,21 +358,19 @@ const Home = () => {
           </h2>
           <div className="flex justify-center gap-8 mb-10">
             <button
-              className={`px-6 py-2 rounded-full transition-colors duration-300 ${
-                activeTab === "volunteer"
-                  ? "bg-red-600 text-white"
-                  : "bg-red-300 text-gray-700"
-              }`}
+              className={`px-6 py-2 rounded-full transition-colors duration-300 ${activeTab === "volunteer"
+                ? "bg-red-600 text-white"
+                : "bg-red-300 text-gray-700"
+                }`}
               onClick={() => setActiveTab("volunteer")}
             >
               For Volunteers
             </button>
             <button
-              className={`px-6 py-2 rounded-full transition-colors duration-300 ${
-                activeTab === "organization"
-                  ? "bg-red-600 text-white"
-                  : "bg-red-300 text-gray-700"
-              }`}
+              className={`px-6 py-2 rounded-full transition-colors duration-300 ${activeTab === "organization"
+                ? "bg-red-600 text-white"
+                : "bg-red-300 text-gray-700"
+                }`}
               onClick={() => setActiveTab("organization")}
             >
               For Organizations
@@ -380,9 +407,138 @@ const Home = () => {
         </div>
       </motion.div>
 
+      {/* About Section */}
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="flex justify-center">
+              <img
+                src="Team.jpg"
+                alt="PledgeIt Team"
+                className="rounded-lg shadow-lg w-full max-w-lg md:max-w-xl" // Increased image size
+              />
+            </div>
+            <div className="md:pr-8">
+              <h2 className="text-3xl md:text-4xl font-playfair font-bold text-secondary mb-12">
+                About Us
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                In Sri Lanka, volunteerism plays a vital role in supporting communities through initiatives like
+                <span className="font-semibold"> environmental conservation, beach clean-ups, and disaster response. </span>
+                However, traditional volunteer management systems are outdated, making coordination inefficient.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed mt-4">
+                <span className="font-semibold text-primary">PledgeIt</span> transforms the way volunteering works by
+                providing an intuitive, centralized platform that connects passionate individuals with meaningful
+                opportunities. Our goal is to make volunteering not only accessible but also engaging, rewarding, and impactful.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed mt-4">
+                Whether you are an individual looking to contribute or an organization seeking volunteers,
+                <span className="font-semibold text-secondary"> PledgeIt ensures seamless collaboration, efficient management, and real impact.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      {/* Team Section */}
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-6">
+          Meet Our Team
+        </h2>
+        <p className="text-gray-600 text-center max-w-2xl mx-auto mb-16">
+          Dedicated professionals committed to making volunteering accessible and impactful for everyone.
+        </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {teamMembers.map((member, index) => (
+            <div
+              key={member.name}
+              className="animate-on-scroll opacity-0 bg-accent rounded-lg p-6 text-center group hover:shadow-lg transition-all duration-300"
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              <div className="relative w-32 h-32 mx-auto mb-6">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="rounded-full w-full h-full object-cover border-4 border-primary-light"
+                />
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-0 right-0 bg-primary hover:bg-primary-hover text-white p-2 rounded-full transition-colors duration-300"
+                >
+                  <Linkedin size={16} />
+                </a>
+              </div>
+              <h3 className="text-xl font-semibold text-secondary mb-2">{member.name}</h3>
+              <p className="text-primary font-medium mb-3">{member.role}</p>
+              <p className="text-gray-600">{member.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
       <Footer />
     </>
   );
 };
+
+const teamMembers = [
+  {
+    name: "Sukhitha Saparamadu",
+    role: "Back-End Developer",
+    description: "Backend engineer passionate about building scalable and efficient systems.",
+    image: "/Sukhitha.jpg",
+    linkedin: "https://linkedin.com"
+  },
+  {
+    name: "Dulansa Navindee",
+    role: "Front-End Developer",
+    description: "Creative front-end developer focused on crafting intuitive and engaging user interfaces.",
+    image: "/Dulansa.jpg",
+    linkedin: "https://www.linkedin.com/in/dulansanavindee/"
+  },
+  {
+    name: "Anjula Samaranayake",
+    role: "Machine Learning Engineer",
+    description: "AI enthusiast exploring data-driven solutions to enhance volunteer experiences.",
+    image: "/Anjula.jpg",
+    linkedin: "https://www.linkedin.com/in/anjula-samaranayake/"
+  },
+  {
+    name: "Aruniga Gnanasegaran",
+    role: "Back-End Developer",
+    description: "Expert in scaling volunteer initiatives and optimizing organizational processes.",
+    image: "/Aruniga.jpg",
+    linkedin: "https://www.linkedin.com/in/aruniga-gnanasegaran/"
+  },
+  {
+    name: "Lochana Methsiluni",
+    role: "Front-End Developer",
+    description: "Experienced developer dedicated to building accessible and user-friendly platforms.",
+    image: "/Lochana.jpg",
+    linkedin: "https://www.linkedin.com/in/lochana-methsiluni/"
+  },
+  {
+    name: "Mishal Ayubkhan",
+    role: "Machine Learning Engineer",
+    description: "Passionate about leveraging AI to drive innovation and efficiency in volunteering.",
+    image: "/Mishal.jpg",
+    linkedin: "https://www.linkedin.com/in/mishalayubkhan102/"
+  }
+];
+
+const faq = [
+  {
+    question: "How do I sign up for PledgeIt?",
+    answer: "You can sign up by visiting our platform and creating a profile as a volunteer or an organization. It's quick and easy!"
+  },
+  {
+    question: "Is PledgeIt free to use?",
+    answer: "Yes, PledgeIt is completely free for volunteers. Organizations may have premium features available at an additional cost."
+  },
+  {
+    question: "How can I find volunteer opportunities?",
+    answer: "Simply browse through our platform and filter opportunities based on your interests, skills, and location."
+  }
+];
 
 export default Home;
