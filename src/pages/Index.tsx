@@ -35,21 +35,6 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-accent">
       <Navigation />
-
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="container mx-auto text-center">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-playfair font-bold text-secondary mb-6 animate-fade-up">
-              Connect Volunteers with Meaningful Opportunities
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-8 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-              Whether you're looking to volunteer or an organization seeking help, PledgeIt brings together passionate people and impactful causes.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* About Section */}
       <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -83,9 +68,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      
-      
 
       {/* Team Section */}
       <section id="team" className="py-20 bg-white">
@@ -126,40 +108,10 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* FAQ Section */}
-      <section id="faq" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-6">
-            Frequently Asked Questions
-          </h2>
-          <div className="max-w-3xl mx-auto">
-            {faq.map((item, index) => (
-              <div key={index} className="mb-4 border-b pb-4">
-                <button
-                  className="w-full text-left text-lg font-medium flex justify-between items-center py-2"
-                  onClick={() => toggleQuestion(index)}
-                >
-                  {item.question}
-                  <span className="text-primary">{openQuestion === index ? '-' : '+'}</span>
-                </button>
-                {openQuestion === index && (
-                  <p className="text-gray-600 mt-2">{item.answer}</p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <Footer/>
-
-
-
     </div>
   );
 };
-
 
 const teamMembers = [
   {

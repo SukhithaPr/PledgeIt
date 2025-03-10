@@ -144,11 +144,11 @@ const Home = () => {
         </div>
         <div className="hidden lg:block mx-10 w-1/2 h-full">
           <div className="relative">
-            <div className="bg-gradient-to-r from-orange-200 via-red-200 to-pink-200 flex items-center justify-center overflow-hidden">
+            <div className="flex items-center justify-center overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1593113598332-cd288d649433"
                 alt="Volunteers in Sri Lanka"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-xl shadow-lg"
                 loading="lazy"
               />
             </div>

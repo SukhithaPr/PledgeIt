@@ -4,12 +4,12 @@ import Home from "./pages/Home";
 
 const App = () => (
 
-      <BrowserRouter>
-        <Routes>
-          <Route path="/about" element={<Index />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<Index />} />
+    </Routes>
+  </BrowserRouter>
 );
 
 export default App;
