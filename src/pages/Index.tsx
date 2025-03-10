@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Navigation from '@/components/Navigation';
 import { Heart, Users, UserPlus, Award, Handshake, Flag, Globe, Check, Linkedin, Link, Mail, Instagram } from 'lucide-react';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   const statsRef = useRef<HTMLDivElement>(null);
@@ -83,61 +84,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-16">
-            Why Choose PledgeIt
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <div
-                key={feature.title}
-                className="animate-on-scroll opacity-0 p-6 rounded-lg hover:shadow-lg transition-all duration-300 bg-accent"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="bg-primary-light bg-opacity-20 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                  <feature.icon className="text-primary" size={24} />
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-secondary">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section id="how-it-works" className="py-20 bg-accent">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-6">
-            How PledgeIt Works
-          </h2>
-          <div className="flex justify-center gap-8 mb-16">
-            <button className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300">
-              For Volunteers
-            </button>
-            <button className="bg-secondary hover:bg-secondary-hover text-white px-6 py-2 rounded-full transition-colors duration-300">
-              For Organizations
-            </button>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {steps.map((step, index) => (
-              <div
-                key={step.title}
-                className="animate-on-scroll opacity-0 text-center"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-6">
-                  {index + 1}
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-secondary">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
+      
 
       {/* Team Section */}
       <section id="team" className="py-20 bg-white">
@@ -204,52 +152,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer / CTA Section */}
-      <footer className="py-10 bg-primary text-white">
-        <div className="container mx-auto px-6 text-center">
-          {/* CTA Heading */}
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6">
-            Ready to Make a Difference?
-          </h2>
-          <p className="text-white text-opacity-90 mb-8 max-w-xl mx-auto">
-            Join our platform to discover meaningful volunteer opportunities or connect with dedicated volunteers for your cause.
-          </p>
-
-          {/* Contact Info */}
-          <p className="mb-4 text-lg">Have questions? Reach out to us at:</p>
-          <a
-            href="mailto:pledgeit6@gmail.com"
-            className="text-white font-medium flex justify-center items-center gap-2 hover:text-gray-300 transition-all duration-300"
-          >
-            <Mail size={20} /> pledgeit6@gmail.com
-          </a>
-
-          {/* Social Media Links */}
-          <div className="flex justify-center items-center gap-6 mt-6">
-            <a
-              href="https://www.instagram.com/your_instagram"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-gray-300 transition-all duration-300"
-            >
-              <Instagram size={24} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/plegdeit/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-gray-300 transition-all duration-300"
-            >
-              <Linkedin size={24} />
-            </a>
-          </div>
-        </div>
-
-        {/* Copyright Section */}
-        <div className="border-t border-white border-opacity-20 mt-12 pt-6 text-center text-sm text-white text-opacity-80">
-          © {new Date().getFullYear()} PledgeIt. All rights reserved.
-        </div>
-      </footer>
+      <Footer/>
 
 
 
@@ -257,38 +160,6 @@ const Index = () => {
   );
 };
 
-const features = [
-  {
-    icon: UserPlus,
-    title: "Easy Registration",
-    description: "Simple sign-up process for both volunteers and organizations to join our community."
-  },
-  {
-    icon: Handshake,
-    title: "Perfect Matching",
-    description: "Organizations post opportunities while volunteers find the perfect match for their skills and interests."
-  },
-  {
-    icon: Globe,
-    title: "Widespread Impact",
-    description: "Connect with local and global opportunities, making a difference wherever you choose."
-  }
-];
-
-const steps = [
-  {
-    title: "Create Your Profile",
-    description: "Sign up as a volunteer or organization. Tell us about your interests or the opportunities you offer."
-  },
-  {
-    title: "Connect & Engage",
-    description: "Organizations post opportunities while volunteers browse and find their perfect match."
-  },
-  {
-    title: "Make an Impact",
-    description: "Start volunteering or receive help from passionate volunteers in your community."
-  }
-];
 
 const teamMembers = [
   {

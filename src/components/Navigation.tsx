@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -18,23 +17,21 @@ const Navigation = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <a href="/" className="text-2xl font-playfair font-bold text-secondary">
-            PledgeIt
-          </a>
+            <div className="flex items-center space-x-4">
+            <img src="logo.png" alt="logo" className='w-12'/>
+            <a href="/" className="text-2xl font-playfair font-bold text-secondary">
+              PledgeIt
+            </a>
+            </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <NavLink href="#about">About Us</NavLink>
-            <NavLink href="#features">Features</NavLink>
-            <NavLink href="#how-it-works">How It Works</NavLink>
-            <NavLink href="#team">Team</NavLink>
-            <button className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300">
-              Get Started
-            </button>
+            <NavLink href="/">Home</NavLink>
+            <NavLink href="/about">About Us</NavLink>
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden text-secondary"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -45,21 +42,11 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-fade-in">
-            <div className="flex flex-col py-4 px-4 space-y-4">
-              <MobileNavLink href="#features" onClick={() => setIsMobileMenuOpen(false)}>
-                Features
-              </MobileNavLink>
-              <MobileNavLink href="#how-it-works" onClick={() => setIsMobileMenuOpen(false)}>
-                How It Works
-              </MobileNavLink>
-              <MobileNavLink href="#testimonials" onClick={() => setIsMobileMenuOpen(false)}>
-                Testimonials
-              </MobileNavLink>
-              <button className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full transition-colors duration-300 w-full">
-                Get Started
-              </button>
+            <div className="flex flex-col py-4 px-4 space-y-4"></div>
+              <MobileNavLink href="/" onClick={() => setIsMobileMenuOpen(false)}>Home</MobileNavLink>
+              <MobileNavLink href="/about" onClick={() => setIsMobileMenuOpen(false)}>About Us</MobileNavLink>
             </div>
-          </div>
+          
         )}
       </div>
     </nav>
@@ -75,12 +62,12 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
   </a>
 );
 
-const MobileNavLink = ({ 
-  href, 
-  children, 
-  onClick 
-}: { 
-  href: string; 
+const MobileNavLink = ({
+  href,
+  children,
+  onClick
+}: {
+  href: string;
   children: React.ReactNode;
   onClick: () => void;
 }) => (
