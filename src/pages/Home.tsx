@@ -347,7 +347,7 @@ const Home = () => {
       {/* How It Works Section */}
       <motion.div
         id="how-it-works"
-        className="py-20 bg-red-100 mt-20"
+        className="pt-20 pb-10 bg-red-100 mt-20"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -406,9 +406,8 @@ const Home = () => {
           </motion.div>
         </div>
       </motion.div>
-
       {/* About Section */}
-        <div className="container mx-auto px-4">
+      <div className="container py-20 mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="flex justify-center">
               <img
@@ -439,43 +438,43 @@ const Home = () => {
           </div>
         </div>
 
-      {/* Team Section */}
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-6">
-          Meet Our Team
-        </h2>
-        <p className="text-gray-600 text-center max-w-2xl mx-auto mb-16">
-          Dedicated professionals committed to making volunteering accessible and impactful for everyone.
-        </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {teamMembers.map((member, index) => (
-            <div
-              key={member.name}
-              className="animate-on-scroll opacity-0 bg-accent rounded-lg p-6 text-center group hover:shadow-lg transition-all duration-300"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <div className="relative w-32 h-32 mx-auto mb-6">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="rounded-full w-full h-full object-cover border-4 border-primary-light"
-                />
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute bottom-0 right-0 bg-primary hover:bg-primary-hover text-white p-2 rounded-full transition-colors duration-300"
-                >
-                  <Linkedin size={16} />
-                </a>
+        {/* Team Section */}
+        <div className="container mx-auto px-8">
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center text-secondary mb-6">
+            Meet Our Team
+          </h2>
+          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-16">
+            Dedicated professionals committed to making volunteering accessible and impactful for everyone.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.map((member, index) => (
+              <div
+                key={member.name}
+                className="animate-on-scroll bg-red-100 rounded-lg p-6 text-center group hover:shadow-lg transition-all duration-300"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="relative w-32 h-32 mx-auto mb-6">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="rounded-full w-full h-full object-cover border-4 border-primary-light"
+                  />
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-0 right-0 bg-primary hover:bg-primary-hover text-white p-2 rounded-full transition-colors duration-300"
+                  >
+                    <Linkedin size={16} />
+                  </a>
+                </div>
+                <h3 className="text-xl font-semibold text-secondary mb-2">{member.name}</h3>
+                <p className="text-primary font-medium mb-3">{member.role}</p>
+                <p className="text-gray-600">{member.description}</p>
               </div>
-              <h3 className="text-xl font-semibold text-secondary mb-2">{member.name}</h3>
-              <p className="text-primary font-medium mb-3">{member.role}</p>
-              <p className="text-gray-600">{member.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
       <Footer />
     </>
   );
